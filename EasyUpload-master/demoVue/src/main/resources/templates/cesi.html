@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<script src="/js/Vue.js" th:src="@{/js/Vue.js}"></script>
+<body>
+<div id="contents">
+    message:{{ message }}
+    <p>url:{{url}}</p>
+    <p>alexa:{{alexa}}</p>
+    <p>f:{{f()}}</p>
+    <p v-html="f()"></p><!--v-html-->
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="seen" id="r1">
+    <p v-if="seen">hehe</p>
+    <br/>
+    <a v-bind:href="url">sa</a>
+
+</div>
+<script>
+    var vm = new Vue({
+        el: '#contents',
+        data: {
+            message: "sqa",
+            url: 'http://www.lghgy.tk',
+            alexa: '10000',
+            seen: false
+        },
+        methods: {
+            f: function () {
+                return this.alexa + "dsd"
+            }
+        }
+    });
+    vm.message = 'sa';
+    document.write(vm.message);
+
+</script>
+</body>
+</html>

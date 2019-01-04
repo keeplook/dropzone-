@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="js/Vue.js"></script>
+	<body>
+
+		<div id='x'>
+			<ol>
+				<todo-item v-for='item in tools' v-bind:todo='item' v-bind:key='item.id'>
+
+				</todo-item>
+			</ol>
+		</div>
+		<script>
+			Vue.component('todo-item', {
+				props: ['todo'],
+				template: '<li>{{todo.text}}</li>'
+			})
+			new Vue({
+				el: '#x',
+				data: {
+					message: 'hello word' + new Date().toLocaleString(),
+					seen: true,
+					tools: [{
+							text: 'sa',
+							id: 2
+						},
+						{
+							text: 'sa1',
+							id: 3
+						},
+						{
+							text: 'sa2',
+							id: 4
+						}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

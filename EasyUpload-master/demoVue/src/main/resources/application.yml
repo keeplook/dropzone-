@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/data?useUnicode=true&characterEncoding=UTF-8&userSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: lihaoll123
+    #数据源类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #初始化大小  最小 最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    #配置获取链接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+  #文件亲求大小
+  server:
+    MaxFileSize: 300MB
+    MaxRequestSize: 500MB
+  #thymeleaf
+  thymeleaf:
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+    enabled: true
+
+##日志级别
+logging:
+  level:
+    com.hc.demo.hc.mapper: debug
+
